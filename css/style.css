@@ -4556,7 +4556,7 @@ img {
 
 /* Banner Pagination */
 
-/*.banner-section .banner-slider-pagination {*/
+.banner-section .banner-slider-pagination {
 	position: absolute;
 	right: 60px;
 	top: inherit;
