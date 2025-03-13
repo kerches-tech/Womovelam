@@ -29,9 +29,9 @@
 
 :root {
 	--theme-color: #74b72e;
-	--theme-color-two: #ffbf00;
-	--theme-color-three: #d40032;
-	--theme-color-four: #02c06d;
+	--theme-color-two: #74b72e;
+	--theme-color-three: #74b72e;
+	--theme-color-four: #74b72e;
 	--theme-color-five: #18bec2;
 	--dark-color: #302c51;
 	--dark-color-two: #302c51;
@@ -4620,31 +4620,31 @@ img {
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(2):after {
-/*	content: '02';*/
+	content: '02';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(3):after {
-/*	content: '03';*/
+	content: '03';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(4):after {
-/*	content: '04';*/
+	content: '04';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(5):after {
-/*	content: '05';*/
+	content: '05';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(6):after {
-/*	content: '06';*/
+	content: '06';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(7):after {
-/*	content: '07';*/
+	content: '07';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:nth-child(8):after {
-/*	content: '08';*/
+	content: '08';
 }
 
 .banner-section .banner-slider-pagination.style-two .swiper-pagination-bullet:before {
@@ -11458,7 +11458,7 @@ img {
 
 .gallery-section {
 	position: relative;
-	background: #d40032;
+	background: #74b72e;
 }
 
 .gallery-section .wrapper-box {
