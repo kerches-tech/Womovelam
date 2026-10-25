@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Womovelam NGO Ghana | Empowering Communities & Transforming Lives</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="images/newlogo.jpg" href="favicon.png">
+    
+   <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brand: {
+                        50: '#f0fdf4',   /* Very light green for backgrounds/hovers */
+                        100: '#e1f8d4',
+                        200: '#b8f297',
+                        300: '#8de85c',
+                        400: '#62D21B',  /* Logo Bright Leaf Green */
+                        500: '#52B928',  /* Logo Medium Tagline Green */
+                        600: '#26520B',  /* Logo Dark Olive Green (Primary Brand & Hover) */
+                        700: '#1e4208',
+                        800: '#163106',
+                        900: '#0e2004',
+                    }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased flex flex-col min-h-screen">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-600 text-white text-xs md:text-sm py-2 px-4 shadow-inner">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span><i class="fas fa-envelope mr-1 text-brand-300"></i> info@womovelamghana.org</span>
+                <span><i class="fas fa-phone mr-1 text-brand-300"></i> +233 (0) 24 123 4567</span>
+                <span class="hidden md:inline"><i class="fas fa-map-marker-alt mr-1 text-brand-300"></i> Tamale / Accra, Ghana</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="font-semibold text-brand-100">Follow Us:</span>
+                <a href="#" class="hover:text-brand-200 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-brand-200 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-brand-200 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-brand-200 transition"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER NAVIGATION -->
+    <header class="bg-white sticky top-0 z-40 shadow-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- NGO Brand Logo -->
+               <a href="index.html" class="flex items-center space-x-3 group">
+    <!-- Replace logo.png with your actual file name -->
+    <img src="images/newlogo.jpg" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
+    <div>
+        <span style="color: #26520B;" class="text-2xl font-extrabold text-gray-900 tracking-tight block leading-none">WOMOVELAM</span>
+    </div>
+</a>
+
+                <!-- Desktop Navigation Menu (Using Standard HREF Links) -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+                    <a style="font-size: 15px;" href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand-600 bg-brand-50">Home</a>
+                    <a style="font-size: 15px;" href="about.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">About Us</a>
+                    <a style="font-size: 15px;" href="focus.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Focus Areas</a>
+                    <a style="font-size: 15px;" href="projects.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Projects</a>
+                    <a style="font-size: 15px;" href="gallery.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Gallery</a>
+                    <a style="font-size: 15px;" href="team.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Our Team</a>
+                    <a style="font-size: 15px;" href="news.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">News</a>
+                    <a style="font-size: 15px;" href="contact.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Contact</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="volunteer.html" class="px-4 py-2.5 rounded-lg border-2 border-brand-600 text-brand-600 hover:bg-brand-50 font-semibold text-sm transition">
+                        Volunteer
+                    </a>
+                    <button onclick="openDonateModal()" class="px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+                        <i class=" mr-1.5 text-red-300"></i> Donate
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-gray-700 hover:text-brand-600 hover:bg-gray-100 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-2 shadow-xl">
+            <a href="index.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-semibold bg-brand-50 text-brand-600">Home</a>
+            <a href="about.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">About Us</a>
+            <a href="focus.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">Focus Areas</a>
+            <a href="projects.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">Projects</a>
+            <a href="gallery.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">Gallery</a>
+            <a href="team.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">Our Team</a>
+            <a href="news.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">News & Stories</a>
+            <a href="contact.html" class="block w-full text-left px-4 py-2.5 rounded-md text-base font-medium hover:bg-brand-50 text-gray-800">Contact Us</a>
+            <div class="pt-4 border-t border-gray-100 flex flex-col space-y-2">
+                <a href="volunteer.html" class="w-full py-2.5 rounded-lg border border-brand-600 text-brand-600 font-semibold text-center block">Volunteer</a>
+                <button onclick="openDonateModal(); toggleMobileMenu();" class="w-full py-2.5 rounded-lg bg-brand-600 text-white font-bold text-center shadow">Donate Now</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-brand-50 border-b border-brand-100 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex items-center text-sm text-gray-600">
+            <a href="index.html" class="hover:text-brand-600"><i class="fas fa-home mr-1"></i>Home</a>
+            <i class="fas fa-chevron-right text-xs mx-2 text-gray-400"></i>
+            <span class="font-semibold text-brand-700 capitalize">Contact Us</span>
+        </div>
+    </div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <main class="flex-grow py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h1 class="text-4xl font-extrabold text-gray-900">Get in Touch With Us</h1>
+                <p class="mt-4 text-lg text-gray-600">Have questions, partnership proposals, or want to visit our offices? We would love to hear from you.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Details -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg">Head Office</h3>
+                            <p class="text-gray-600 text-sm mt-1">Plot 14, Ring Road Central, Accra, Ghana</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg">Email Us</h3>
+                            <p class="text-gray-600 text-sm mt-1">info@womovelamghana.org</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg">Call Us</h3>
+                            <p class="text-gray-600 text-sm mt-1">+233 (0) 24 123 4567 / +233 (0) 30 298 7654</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you shortly.'); this.reset();" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg shadow transition text-sm">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- DONATE MODAL -->
+    <div id="donate-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/65 opacity-0 pointer-events-none transition-opacity">
+        <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-8 relative shadow-2xl">
+            <button onclick="document.getElementById('donate-modal').classList.add('opacity-0', 'pointer-events-none')" class="absolute top-4 right-4 text-gray-400 font-bold p-2"><i class="fas fa-times"></i></button>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Support Womovelam NGO</h3>
+            <button onclick="alert('Thank you!');" class="w-full py-3 bg-brand-600 text-white font-bold rounded-lg">Donate Now</button>
+        </div>
+    </div>
+
+   <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 mt-auto pt-16 pb-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                         <img src="images/newlogo.jpg" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
+                        <span class="text-xl font-extrabold text-white">WOMOVELAM</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Registered Non-Governmental Organization in Ghana empowering grassroots communities through sustainable health, and education.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="index.html" class="hover:text-brand-400 transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-400 transition">About Us</a></li>
+                        <li><a href="focus.html" class="hover:text-brand-400 transition">Focus Areas</a></li>
+                        <li><a href="projects.html" class="hover:text-brand-400 transition">Our Projects</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4">Get Involved</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="volunteer.html" class="hover:text-brand-400 transition">Volunteer With Us</a></li>
+                        <li><a href="#" onclick="openDonateModal(); return false;" class="hover:text-brand-400 transition">Make a Donation</a></li>
+                        <li><a href="news.html" class="hover:text-brand-400 transition">Latest News</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-400 transition">Contact Headquarters</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4">Ghana Operations</h4>
+                    <p class="text-sm text-gray-400"><i class="fas fa-map-pin mr-2 text-brand-500"></i> Accra & Tamale, Ghana</p>
+                    <p class="text-sm text-gray-400 mt-2"><i class="fas fa-envelope mr-2 text-brand-500"></i> info@womovelamghana.org</p>
+                    <p class="text-sm text-gray-400 mt-2"><i class="fas fa-phone mr-2 text-brand-500"></i> +233 (0) 24 123 4567</p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Womovelam NGO Ghana. All rights reserved.</p><br>
+                Developed by Kerches
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-400">Financial Reports</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC (Only for Carousel & Modals) -->
+   <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+
+        // Hero Background Carousel Logic
+        let currentHeroSlide = 0;
+        const totalHeroSlides = 4;
+        let heroInterval = setInterval(nextHeroSlide, 6000);
+
+        const heroCaptions = [
+            "Creating sustainable livelihoods, expanding quality education, and advancing healthcare across rural Ghanaian communities.",
+            "Drilling solar-powered boreholes to provide clean drinking water in isolated drought-prone districts.",
+            "Empowering women entrepreneurs and shea butter cooperatives through micro-finance and vocational training.",
+            "Renovating schools, providing books, and expanding STEM education for the next generation of Ghanaian leaders."
+        ];
+
+        function updateHeroCarousel() {
+            for (let i = 0; i < totalHeroSlides; i++) {
+                const slide = document.getElementById(`hero-slide-${i}`);
+                if (slide) {
+                    if (i === currentHeroSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                }
+            }
+
+            const dots = document.querySelectorAll('.hero-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentHeroSlide) {
+                    dot.classList.add('opacity-100', 'scale-125', 'bg-white');
+                    dot.classList.remove('opacity-50', 'bg-white/50');
+                } else {
+                    dot.classList.remove('opacity-100', 'scale-125', 'bg-white');
+                    dot.classList.add('opacity-50', 'bg-white/50');
+                }
+            });
+
+            const captionElem = document.getElementById('hero-caption');
+            if (captionElem) {
+                captionElem.textContent = heroCaptions[currentHeroSlide];
+            }
+        }
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+            updateHeroCarousel();
+        }
+
+        function prevHeroSlide() {
+            currentHeroSlide = (currentHeroSlide - 1 + totalHeroSlides) % totalHeroSlides;
+            updateHeroCarousel();
+        }
+
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            updateHeroCarousel();
+            clearInterval(heroInterval);
+            heroInterval = setInterval(nextHeroSlide, 6000);
+        }
+
+        // Projects Auto-Slider Logic
+        let projectsInterval;
+
+        function slideProjects(direction) {
+            const container = document.getElementById('projects-slider');
+            if (!container) return;
+            const scrollAmount = container.clientWidth * 0.75;
+            
+            if (direction === 'right' && (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10)) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function startProjectsAutoSlide() {
+            projectsInterval = setInterval(() => {
+                slideProjects('right');
+            }, 4000);
+        }
+
+        function pauseProjectsAutoSlide() {
+            clearInterval(projectsInterval);
+        }
+
+        function filterProjects(category, buttonElem) {
+            const buttons = document.querySelectorAll('.project-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'font-bold');
+                btn.classList.add('bg-white', 'border', 'border-gray-200', 'text-gray-700', 'font-semibold');
+            });
+            buttonElem.classList.remove('bg-white', 'border', 'border-gray-200', 'text-gray-700', 'font-semibold');
+            buttonElem.classList.add('bg-brand-600', 'text-white', 'font-bold');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Project Detail Modal Functions
+        function openProjectModal(title, region, category, desc, img) {
+            document.getElementById('project-modal-title').textContent = title;
+            document.getElementById('project-modal-region').textContent = region;
+            document.getElementById('project-modal-category').textContent = category;
+            document.getElementById('project-modal-desc').textContent = desc;
+            document.getElementById('project-modal-img').src = img;
+            
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            pauseProjectsAutoSlide();
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            startProjectsAutoSlide();
+        }
+
+        // Gallery Slider Functions & Auto-Slide Logic
+        let galleryInterval;
+
+        function slideGallery(direction) {
+            const container = document.getElementById('gallery-slider');
+            if (!container) return;
+            const scrollAmount = container.clientWidth * 0.75;
+            
+            if (direction === 'right' && (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10)) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function startGalleryAutoSlide() {
+            galleryInterval = setInterval(() => {
+                slideGallery('right');
+            }, 3500);
+        }
+
+        function pauseGalleryAutoSlide() {
+            clearInterval(galleryInterval);
+        }
+
+        // LOAD ON SCROLL ENGINE (INTERSECTION OBSERVER)
+        function initScrollAnimations() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const animateOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('scroll-item-hidden');
+                        entry.target.classList.add('scroll-item-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-item-hidden').forEach(el => {
+                animateOnScroll.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            startGalleryAutoSlide();
+            startProjectsAutoSlide();
+            initScrollAnimations();
+
+            // Automatic Active Nav Highlighter
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('text-brand-600', 'bg-brand-50', 'font-semibold');
+                    link.classList.remove('text-gray-700', 'text-gray-800', 'font-medium');
+                } else {
+                    link.classList.remove('text-brand-600', 'bg-brand-50');
+                }
+            });
+        });
+
+        // Lightbox Functions
+        function openLightbox(imageSrc, captionText) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            
+            img.src = imageSrc;
+            caption.textContent = captionText;
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            pauseGalleryAutoSlide();
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            startGalleryAutoSlide();
+        }
+
+        // Donate Modal Functions
+        function openDonateModal() {
+            const modal = document.getElementById('donate-modal');
+            const content = document.getElementById('donate-modal-content');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+
+        function closeDonateModal() {
+            const modal = document.getElementById('donate-modal');
+            const content = document.getElementById('donate-modal-content');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+        }
+
+        // Toast Notification Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
