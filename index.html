@@ -11,9 +11,9 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon -->
-    <link rel="icon" type="images/newlogo.jpg" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     
-   <script>
+    <script>
     tailwind.config = {
         theme: {
             extend: {
@@ -58,7 +58,27 @@
             z-index: 1;
         }
         
-        /* Modal transitions */
+        /* Custom scrollbar hiding for horizontal sliders */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Load on scroll fade animation */
+        .scroll-item-hidden {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-item-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal overlay transitions */
         .modal-overlay {
             transition: opacity 0.3s ease-in-out;
         }
@@ -111,14 +131,13 @@
                 
                 <!-- NGO Brand Logo -->
                <a href="index.html" class="flex items-center space-x-3 group">
-    <!-- Replace logo.png with your actual file name -->
-    <img src="images/newlogo.jpg" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
-    <div>
-        <span style="color: #26520B;" class="text-2xl font-extrabold text-gray-900 tracking-tight block leading-none">WOMOVELAM</span>
-    </div>
-</a>
+                    <img src="images/newlogo.jpg" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
+                    <div>
+                        <span style="color: #26520B;" class="text-2xl font-extrabold text-gray-900 tracking-tight block leading-none">WOMOVELAM</span>
+                    </div>
+                </a>
 
-                <!-- Desktop Navigation Menu (Using Standard HREF Links) -->
+                <!-- Desktop Navigation Menu -->
                 <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
                     <a style="font-size: 15px;" href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand-600 bg-brand-50">Home</a>
                     <a style="font-size: 15px;" href="about.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">About Us</a>
@@ -136,7 +155,7 @@
                         Volunteer
                     </a>
                     <button onclick="openDonateModal()" class="px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
-                        <i class=" mr-1.5 text-red-300"></i> Donate
+                        Donate
                     </button>
                 </div>
 
@@ -169,33 +188,25 @@
     <!-- MAIN HOME CONTENT WRAPPER -->
     <main class="flex-grow">
 
-        <!-- HERO SECTION WITH FULL-BACKGROUND CAROUSEL -->
+        <!-- HERO SECTION (Rhythm 1: Dark Impact) -->
         <div id="hero-carousel-container" class="relative w-full h-[85vh] min-h-[550px] max-h-[750px] bg-gray-900 overflow-hidden group">
             
-            <!-- BACKGROUND IMAGE CAROUSEL SLIDES -->
             <div id="hero-slide-0" class="hero-bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1600&auto=format&fit=crop');"></div>
             <div id="hero-slide-1" class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1600&auto=format&fit=crop');"></div>
             <div id="hero-slide-2" class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1600&auto=format&fit=crop');"></div>
             <div id="hero-slide-3" class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1600&auto=format&fit=crop');"></div>
 
-            <!-- SEMI-TRANSPARENT DARK GRADIENT OVERLAY -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 z-10"></div>
 
-            <!-- HERO OVERLAY CONTENT -->
             <div class="relative z-20 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-start text-white">
-                
-             
-                
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-3xl drop-shadow-md">
                     Empowering Communities, <span class="text-brand-400">Transforming Lives</span> in Ghana
                 </h1>
 
-                <!-- DYNAMIC SLIDE CAPTIONS -->
                 <p id="hero-caption" class="mt-4 text-base sm:text-xl text-gray-200 max-w-2xl leading-relaxed drop-shadow-sm font-light">
                     Creating sustainable livelihoods, expanding quality education, and advancing healthcare across rural Ghanaian communities.
                 </p>
 
-                <!-- ACTION BUTTONS -->
                 <div class="mt-8 flex flex-wrap gap-4">
                     <button onclick="openDonateModal()" class="px-8 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
                         Support Our Cause <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -206,25 +217,19 @@
                 </div>
             </div>
 
-            
-
-            <!-- CAROUSEL CONTROLS: PAGINATION DOT INDICATORS -->
             <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-3 bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
                 <button onclick="goToHeroSlide(0)" class="hero-dot w-3 h-3 rounded-full bg-white transition-all duration-300 opacity-100 scale-125" aria-label="Slide 1"></button>
                 <button onclick="goToHeroSlide(1)" class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300 opacity-50" aria-label="Slide 2"></button>
                 <button onclick="goToHeroSlide(2)" class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300 opacity-50" aria-label="Slide 3"></button>
                 <button onclick="goToHeroSlide(3)" class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300 opacity-50" aria-label="Slide 4"></button>
             </div>
-
-            <!-- PAUSE INDICATOR STATUS -->
-           
         </div>
 
-        <!-- HOME SUMMARY ABOUT -->
+        <!-- ABOUT SECTION (Rhythm 2: Clean White) -->
         <div class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
+                    <div class="scroll-item-hidden">
                         <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">Who We Are</span>
                         <h2 class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">Dedicated to sustainable grassroot transformation</h2>
                         <p class="mt-4 text-gray-600 leading-relaxed">
@@ -256,7 +261,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="relative">
+                    <div class="relative scroll-item-hidden">
                         <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=800&auto=format&fit=crop" alt="Community gathering Ghana" class="rounded-2xl shadow-xl w-full object-cover h-[400px]">
                         <div class="absolute -bottom-6 -left-6 bg-brand-100 p-6 rounded-xl border-2 border-brand-200 hidden sm:block shadow-lg max-w-xs">
                             <p class="text-brand-800 font-bold text-lg">5 Years</p>
@@ -267,47 +272,247 @@
             </div>
         </div>
 
-        <!-- FOCUS AREAS PREVIEW -->
-        <div class="py-16 bg-brand-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="text-brand-600 font-bold uppercase tracking-wider text-sm">Our Focus Areas</span>
-                <h2 class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">Building Stronger Foundations</h2>
-                <p class="mt-3 text-gray-600 max-w-2xl mx-auto">We focus our efforts where help is needed most to deliver measurable, sustainable social impact.</p>
+        <!-- PROJECTS & COMMUNITY IMPACT (Rhythm 3: Soft Brand Tint) -->
+        <section id="projects" class="py-14 sm:py-20 bg-brand-50/50 border-y border-brand-100 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="scroll-item-hidden flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
+                    <div>
+                        <span class="text-brand-600 font-bold text-xs sm:text-sm tracking-wider uppercase bg-white px-3 py-1 rounded-full border border-brand-100 shadow-sm">Our Footprint</span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-900 mt-2">Projects & Community Impact</h2>
+                    </div>
 
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    <!-- Card 1 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
-                        <div class="w-14 h-14 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
-                            <i class="fas fa-graduation-cap"></i>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div class="overflow-x-auto no-scrollbar py-1" id="projectFilterBtns">
+                            <div class="flex items-center gap-2">
+                                <button onclick="filterProjects('all', this)" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl bg-brand-600 text-white transition shadow-sm">All Projects</button>
+                                <button onclick="filterProjects('water', this)" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition">Clean Water</button>
+                                <button onclick="filterProjects('education', this)" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition">Education</button>
+                                <button onclick="filterProjects('environment', this)" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition">Environment</button>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900">Education & Literacy</h3>
-                        <p class="mt-3 text-gray-600 text-sm leading-relaxed">Providing learning materials, scholarships, and improved classroom facilities for children in rural communities.</p>
-                        <a href="focus.html" class="mt-4 inline-block text-brand-600 font-semibold text-sm hover:underline">Explore Education <i class="fas fa-arrow-right text-xs ml-1"></i></a>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
-                        <div class="w-14 h-14 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
-                            <i class="fas fa-female"></i>
+                        <div class="hidden md:flex items-center space-x-2 border-l border-brand-200 pl-4">
+                            <button onclick="slideProjects('left')" aria-label="Scroll left" class="w-10 h-10 rounded-full bg-white border border-brand-200 text-brand-800 hover:bg-brand-600 hover:text-white flex items-center justify-center shadow-sm transition">
+                                <i class="fas fa-chevron-left text-xs"></i>
+                            </button>
+                            <button onclick="slideProjects('right')" aria-label="Scroll right" class="w-10 h-10 rounded-full bg-white border border-brand-200 text-brand-800 hover:bg-brand-600 hover:text-white flex items-center justify-center shadow-sm transition">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900">Women Empowerment</h3>
-                        <p class="mt-3 text-gray-600 text-sm leading-relaxed">Supporting women entrepreneurs with micro-loans, vocational training, and agricultural equipment.</p>
-                        <a href="focus.html" class="mt-4 inline-block text-brand-600 font-semibold text-sm hover:underline">Explore Empowerment <i class="fas fa-arrow-right text-xs ml-1"></i></a>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
-                        <div class="w-14 h-14 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
-                            <i class="fas fa-hand-holding-water"></i>
+                </div>
+
+                <div id="projects-slider" 
+                     onmouseenter="pauseProjectsAutoSlide()" 
+                     onmouseleave="startProjectsAutoSlide()" 
+                     class="flex space-x-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
+                    
+                    <!-- Project 1 -->
+                   <div class="project-card scroll-item-hidden snap-start flex-none w-[88%] sm:w-[48%] lg:w-[32%] bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="education">
+                        <div>
+                            <div class="relative h-48 sm:h-52 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600" alt="Education Ghana" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm">Northern Region</span>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-3">
+                                <span class="text-[10px] bg-brand-100 text-brand-800 font-bold px-2 py-0.5 rounded uppercase">Education</span>
+                                <h3 class="text-base sm:text-lg font-bold text-brand-900">Tamale School Resource Center</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Provided 1,000+ textbooks, computers, and desks to support rural elementary education.</p>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900">Clean Water & Health</h3>
-                        <p class="mt-3 text-gray-600 text-sm leading-relaxed">Constructing solar-powered boreholes and carrying out maternal health outreach programs in isolated villages.</p>
-                        <a href="focus.html" class="mt-4 inline-block text-brand-600 font-semibold text-sm hover:underline">Explore Healthcare <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                        <div class="px-5 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                            <button onclick="openProjectModal('Tamale School Resource Center', 'Northern Region', 'Education', 'Equipped the primary school with digital learning terminals, desks, and 1,000+ brand-new science textbooks. Over 600 students now benefit from regular STEM lessons.', 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800')" class="text-brand-600 hover:text-brand-700 text-xs sm:text-sm font-bold flex items-center transition">
+                                Read More <i class="fas fa-arrow-right text-xs ml-1.5"></i>
+                            </button>
+                            <a href="projects.html" class="text-xs text-gray-400 hover:text-gray-600">All Projects</a>
+                        </div>
                     </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card scroll-item-hidden snap-start flex-none w-[88%] sm:w-[48%] lg:w-[32%] bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="education">
+                        <div>
+                            <div class="relative h-48 sm:h-52 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600" alt="Education Ghana" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm">Northern Region</span>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-3">
+                                <span class="text-[10px] bg-brand-100 text-brand-800 font-bold px-2 py-0.5 rounded uppercase">Education</span>
+                                <h3 class="text-base sm:text-lg font-bold text-brand-900">Tamale School Resource Center</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Provided 1,000+ textbooks, computers, and desks to support rural elementary education.</p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                            <button onclick="openProjectModal('Tamale School Resource Center', 'Northern Region', 'Education', 'Equipped the primary school with digital learning terminals, desks, and 1,000+ brand-new science textbooks. Over 600 students now benefit from regular STEM lessons.', 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800')" class="text-brand-600 hover:text-brand-700 text-xs sm:text-sm font-bold flex items-center transition">
+                                Read More <i class="fas fa-arrow-right text-xs ml-1.5"></i>
+                            </button>
+                            <a href="projects.html" class="text-xs text-gray-400 hover:text-gray-600">All Projects</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card scroll-item-hidden snap-start flex-none w-[88%] sm:w-[48%] lg:w-[32%] bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="environment">
+                        <div>
+                            <div class="relative h-48 sm:h-52 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=600" alt="Tree planting" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm">Greater Accra</span>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-3">
+                                <span class="text-[10px] bg-brand-100 text-brand-800 font-bold px-2 py-0.5 rounded uppercase">Environment</span>
+                                <h3 class="text-base sm:text-lg font-bold text-brand-900">Green Accra Reforestation</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Planted 3,000 native mangrove saplings along coastline regions to prevent erosion and safeguard local ecosystems.</p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                            <button onclick="openProjectModal('Green Accra Reforestation', 'Greater Accra', 'Environment', 'Organized community volunteers to plant over 3,000 mangrove trees along vulnerable coastal areas, preventing soil erosion and reviving local marine habitats.', 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800')" class="text-brand-600 hover:text-brand-700 text-xs sm:text-sm font-bold flex items-center transition">
+                                Read More <i class="fas fa-arrow-right text-xs ml-1.5"></i>
+                            </button>
+                            <a href="projects.html" class="text-xs text-gray-400 hover:text-gray-600">All Projects</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card scroll-item-hidden snap-start flex-none w-[88%] sm:w-[48%] lg:w-[32%] bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between" data-category="water">
+                        <div>
+                            <div class="relative h-48 sm:h-52 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=600" alt="Shea Butter Cooperative" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm">Upper East</span>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-3">
+                                <span class="text-[10px] bg-brand-100 text-brand-800 font-bold px-2 py-0.5 rounded uppercase">Empowerment</span>
+                                <h3 class="text-base sm:text-lg font-bold text-brand-900">Women Shea Enterprise Fund</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Providing seed capital, modern processing equipment, and market access for 200+ rural female artisans.</p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
+                            <button onclick="openProjectModal('Women Shea Enterprise Fund', 'Upper East', 'Empowerment', 'Empowered women entrepreneurs through micro-loans, machinery, and business literacy training to build a self-sustaining shea butter export cooperative.', 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=800')" class="text-brand-600 hover:text-brand-700 text-xs sm:text-sm font-bold flex items-center transition">
+                                Read More <i class="fas fa-arrow-right text-xs ml-1.5"></i>
+                            </button>
+                            <a href="projects.html" class="text-xs text-gray-400 hover:text-gray-600">All Projects</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-6 text-center md:hidden scroll-item-hidden">
+                    <a href="projects.html" class="inline-flex items-center px-5 py-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs shadow-md">
+                        Explore All Projects <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT DETAILS MODAL -->
+        <div id="project-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+                <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl font-bold p-2"><i class="fas fa-times"></i></button>
+                <img id="project-modal-img" src="" alt="Project view" class="w-full h-56 sm:h-64 object-cover rounded-xl mb-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span id="project-modal-category" class="text-[10px] bg-brand-100 text-brand-800 font-bold px-2.5 py-1 rounded uppercase">Category</span>
+                    <span id="project-modal-region" class="text-xs font-semibold text-gray-500">Region</span>
+                </div>
+                <h3 id="project-modal-title" class="text-2xl font-bold text-gray-900 mb-3">Project Title</h3>
+                <p id="project-modal-desc" class="text-sm text-gray-600 leading-relaxed mb-6"></p>
+                <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                    <button onclick="closeProjectModal(); openDonateModal();" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow transition">
+                        Support Similar Initiatives
+                    </button>
+                    <a href="projects.html" class="text-xs text-brand-600 font-semibold hover:underline">View All NGO Projects &rarr;</a>
                 </div>
             </div>
         </div>
 
-        <!-- FEATURED CALL TO ACTION -->
-        <div class="bg-gradient-to-r from-brand-700 to-brand-600 text-white py-16">
+         <section id="gallery" class="py-14 sm:py-20 bg-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="scroll-item-hidden flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+                    <div>
+                        <span class="text-brand-600 font-bold text-xs sm:text-sm tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full shadow-sm border border-brand-100 inline-block">Moments of Hope</span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-brand-900 mt-2">Photo & Video Gallery</h2>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2">Highlights of our projects and grassroots activities across Ghana.</p>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center space-x-4 mt-4 md:mt-0">
+                        <a href="gallery.html" class="px-5 py-2.5 rounded-xl bg-white border border-brand-200 text-brand-700 hover:bg-brand-600 hover:text-white text-sm font-bold shadow-sm transition-all duration-300 flex items-center">
+                            View All Photos <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <div class="flex items-center space-x-2 border-l border-gray-300 pl-4">
+                            <button onclick="slideGallery('left')" aria-label="Scroll left" class="w-11 h-11 rounded-full bg-white border border-gray-200 text-brand-800 hover:bg-brand-600 hover:text-white flex items-center justify-center shadow-sm transition-all duration-300">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button onclick="slideGallery('right')" aria-label="Scroll right" class="w-11 h-11 rounded-full bg-white border border-gray-200 text-brand-800 hover:bg-brand-600 hover:text-white flex items-center justify-center shadow-sm transition-all duration-300">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gallery-slider" 
+                     onmouseenter="pauseGalleryAutoSlide()" 
+                     onmouseleave="startGalleryAutoSlide()" 
+                     class="flex space-x-4 sm:space-x-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
+                    
+                    <div class="scroll-item-hidden snap-start flex-none w-[85%] sm:w-[48%] md:w-[32%] group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200', 'Community Youth Educational Workshop')">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=600" alt="Youth workshop" class="w-full h-64 sm:h-72 object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-all duration-300 flex items-end p-5">
+                            <div class="text-white transform translate-y-0 transition-transform duration-300">
+                                <span class="text-[10px] bg-brand-500 px-2.5 py-1 rounded-md font-bold uppercase tracking-wider text-white">Education</span>
+                                <h4 class="text-sm sm:text-base font-bold mt-2">Community Learning Circle</h4>
+                                <p class="text-xs text-gray-200 mt-1 line-clamp-1">Empowering rural youth with reading and mentorship.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="scroll-item-hidden snap-start flex-none w-[85%] sm:w-[48%] md:w-[32%] group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200', 'Community Youth Educational Workshop')">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=600" alt="Youth workshop" class="w-full h-64 sm:h-72 object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-all duration-300 flex items-end p-5">
+                            <div class="text-white transform translate-y-0 transition-transform duration-300">
+                                <span class="text-[10px] bg-brand-500 px-2.5 py-1 rounded-md font-bold uppercase tracking-wider text-white">Education</span>
+                                <h4 class="text-sm sm:text-base font-bold mt-2">Community Learning Circle</h4>
+                                <p class="text-xs text-gray-200 mt-1 line-clamp-1">Empowering rural youth with reading and mentorship.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="scroll-item-hidden snap-start flex-none w-[85%] sm:w-[48%] md:w-[32%] group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200', 'Community Youth Educational Workshop')">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=600" alt="Youth workshop" class="w-full h-64 sm:h-72 object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-all duration-300 flex items-end p-5">
+                            <div class="text-white transform translate-y-0 transition-transform duration-300">
+                                <span class="text-[10px] bg-brand-500 px-2.5 py-1 rounded-md font-bold uppercase tracking-wider text-white">Education</span>
+                                <h4 class="text-sm sm:text-base font-bold mt-2">Community Learning Circle</h4>
+                                <p class="text-xs text-gray-200 mt-1 line-clamp-1">Empowering rural youth with reading and mentorship.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scroll-item-hidden snap-start flex-none w-[85%] sm:w-[48%] md:w-[32%] group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=1200', 'Women Cooperatives Support')">
+                        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=600" alt="Women Empowerment" class="w-full h-64 sm:h-72 object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-all duration-300 flex items-end p-5">
+                            <div class="text-white transform translate-y-0 transition-transform duration-300">
+                                <span class="text-[10px] bg-brand-500 px-2.5 py-1 rounded-md font-bold uppercase tracking-wider text-white">Empowerment</span>
+                                <h4 class="text-sm sm:text-base font-bold mt-2">Shea Butter Cooperative</h4>
+                                <p class="text-xs text-gray-200 mt-1 line-clamp-1">Training female entrepreneurs on micro-business growth.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-gray-500 mt-4 md:hidden">
+                    <a href="gallery.html" class="font-bold text-brand-600 hover:underline">View All Photos <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX MODAL -->
+        <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+            <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/80 hover:text-white text-2xl z-50 p-2"><i class="fas fa-times"></i></button>
+            <div class="max-w-4xl w-full text-center">
+                <img id="lightbox-img" src="" alt="Enlarged gallery view" class="max-h-[75vh] mx-auto rounded-xl shadow-2xl object-contain">
+                <p id="lightbox-caption" class="text-white text-base sm:text-lg font-medium mt-4"></p>
+            </div>
+        </div>
+
+        <!-- FEATURED CALL TO ACTION (Rhythm 5: Rich Brand Gradient) -->
+        <div class="scroll-item-hidden bg-gradient-to-r from-brand-700 to-brand-600 text-white py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-extrabold sm:text-4xl">Ready to Make a Difference Today?</h2>
                 <p class="mt-4 text-brand-100 max-w-2xl mx-auto text-lg">Your support directly powers our field operations, providing immediate relief and long-term empowerment in Ghana.</p>
@@ -333,11 +538,11 @@
             </div>
 
             <div class="space-y-4">
-                <div class="grid grid-cols-3 gap-3">
-                    <button type="button" class="py-2.5 border-2 border-brand-600 text-brand-600 font-bold rounded-lg hover:bg-brand-50 text-sm">GHS 50</button>
-                    <button type="button" class="py-2.5 border-2 border-brand-600 bg-brand-600 text-white font-bold rounded-lg text-sm">GHS 200</button>
-                    <button type="button" class="py-2.5 border-2 border-brand-600 text-brand-600 font-bold rounded-lg hover:bg-brand-50 text-sm">GHS 500</button>
-                </div>
+               <div class="grid grid-cols-3 gap-3">
+    <button type="button" class="py-2.5 border-2 border-brand-600 text-brand-600 font-bold rounded-lg hover:bg-brand-50 text-sm">GH₵ 50</button>
+    <button type="button" class="py-2.5 border-2 border-brand-600 bg-brand-600 text-white font-bold rounded-lg text-sm">GH₵ 200</button>
+    <button type="button" class="py-2.5 border-2 border-brand-600 text-brand-600 font-bold rounded-lg hover:bg-brand-50 text-sm">GH₵ 500</button>
+</div>
                 <div>
                     <label class="block text-xs font-semibold text-gray-600 mb-1">Custom Amount (GHS / USD)</label>
                     <input type="number" placeholder="Enter amount" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
@@ -353,8 +558,8 @@
         <span id="toast-message" class="text-sm font-medium">Notification message</span>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-900 text-gray-300 mt-auto pt-16 pb-12 border-t border-gray-800">
+    <!-- FOOTER (Rhythm 6: Deep Dark) -->
+    <footer class="scroll-item-hidden bg-gray-900 text-gray-300 mt-auto pt-16 pb-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="space-y-4">
@@ -407,13 +612,14 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC (Only for Carousel & Modals) -->
-    <script>
+    <!-- JAVASCRIPT LOGIC -->
+<script>
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
+        
 
         // Hero Background Carousel Logic
         let currentHeroSlide = 0;
@@ -439,7 +645,6 @@
                 }
             }
 
-            // Update dots
             const dots = document.querySelectorAll('.hero-dot');
             dots.forEach((dot, idx) => {
                 if (idx === currentHeroSlide) {
@@ -451,7 +656,6 @@
                 }
             });
 
-            // Update caption
             const captionElem = document.getElementById('hero-caption');
             if (captionElem) {
                 captionElem.textContent = heroCaptions[currentHeroSlide];
@@ -473,6 +677,160 @@
             updateHeroCarousel();
             clearInterval(heroInterval);
             heroInterval = setInterval(nextHeroSlide, 6000);
+        }
+
+        // Projects Auto-Slider Logic
+        let projectsInterval;
+
+        function slideProjects(direction) {
+            const container = document.getElementById('projects-slider');
+            if (!container) return;
+            const scrollAmount = container.clientWidth * 0.75;
+            
+            if (direction === 'right' && (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10)) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function startProjectsAutoSlide() {
+            projectsInterval = setInterval(() => {
+                slideProjects('right');
+            }, 4000);
+        }
+
+        function pauseProjectsAutoSlide() {
+            clearInterval(projectsInterval);
+        }
+
+        function filterProjects(category, buttonElem) {
+            const buttons = document.querySelectorAll('.project-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'font-bold');
+                btn.classList.add('bg-white', 'border', 'border-gray-200', 'text-gray-700', 'font-semibold');
+            });
+            buttonElem.classList.remove('bg-white', 'border', 'border-gray-200', 'text-gray-700', 'font-semibold');
+            buttonElem.classList.add('bg-brand-600', 'text-white', 'font-bold');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Project Detail Modal Functions
+        function openProjectModal(title, region, category, desc, img) {
+            document.getElementById('project-modal-title').textContent = title;
+            document.getElementById('project-modal-region').textContent = region;
+            document.getElementById('project-modal-category').textContent = category;
+            document.getElementById('project-modal-desc').textContent = desc;
+            document.getElementById('project-modal-img').src = img;
+            
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            pauseProjectsAutoSlide();
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            startProjectsAutoSlide();
+        }
+
+        // Gallery Slider Functions & Auto-Slide Logic
+        let galleryInterval;
+
+        function slideGallery(direction) {
+            const container = document.getElementById('gallery-slider');
+            if (!container) return;
+            const scrollAmount = container.clientWidth * 0.75;
+            
+            if (direction === 'right' && (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10)) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function startGalleryAutoSlide() {
+            galleryInterval = setInterval(() => {
+                slideGallery('right');
+            }, 3500);
+        }
+
+        function pauseGalleryAutoSlide() {
+            clearInterval(galleryInterval);
+        }
+
+        // LOAD ON SCROLL ENGINE (INTERSECTION OBSERVER)
+        function initScrollAnimations() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const animateOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('scroll-item-hidden');
+                        entry.target.classList.add('scroll-item-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-item-hidden').forEach(el => {
+                animateOnScroll.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            startGalleryAutoSlide();
+            startProjectsAutoSlide();
+            initScrollAnimations();
+
+            // Automatic Active Nav Highlighter
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('text-brand-600', 'bg-brand-50', 'font-semibold');
+                    link.classList.remove('text-gray-700', 'text-gray-800', 'font-medium');
+                } else {
+                    link.classList.remove('text-brand-600', 'bg-brand-50');
+                }
+            });
+        });
+
+        // Lightbox Functions
+        function openLightbox(imageSrc, captionText) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            
+            img.src = imageSrc;
+            caption.textContent = captionText;
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            pauseGalleryAutoSlide();
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            startGalleryAutoSlide();
         }
 
         // Donate Modal Functions
