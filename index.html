@@ -11,34 +11,33 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon -->
-    <link rel="icon" type="images/w-logo.jpg" href="favicon.png">
+    <link rel="icon" type="images/logo.JPG" href="favicon.png">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            100: '#e8f5e9',
-                            200: '#c8e6c9',
-                            300: '#a5d6a7',
-                            400: '#81c784',
-                            500: '#4caf50',
-                            600: '#2e8b57', // Primary Sea Green
-                            700: '#1b5e20',
-                            800: '#144617',
-                            900: '#0d2e0f',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+   <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brand: {
+                        50: '#f0fdf4',   /* Very light green for backgrounds/hovers */
+                        100: '#e1f8d4',
+                        200: '#b8f297',
+                        300: '#8de85c',
+                        400: '#62D21B',  /* Logo Bright Leaf Green */
+                        500: '#52B928',  /* Logo Medium Tagline Green */
+                        600: '#26520B',  /* Logo Dark Olive Green (Primary Brand & Hover) */
+                        700: '#1e4208',
+                        800: '#163106',
+                        900: '#0e2004',
                     }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
                 }
             }
         }
-    </script>
-
+    }
+</script>
     <style>
         /* Smooth Fade Transition for Hero Background Carousel */
         .hero-bg-slide {
@@ -113,22 +112,22 @@
                 <!-- NGO Brand Logo -->
                <a href="index.html" class="flex items-center space-x-3 group">
     <!-- Replace logo.png with your actual file name -->
-    <img src="images/logo.JPG" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
+    <img src="images/newlogo.JPG" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
     <div>
-        <span class="text-2xl font-extrabold text-gray-900 tracking-tight block leading-none">WOMOVELAM</span>
+        <span style="color: #26520B;" class="text-2xl font-extrabold text-gray-900 tracking-tight block leading-none">WOMOVELAM</span>
     </div>
 </a>
 
                 <!-- Desktop Navigation Menu (Using Standard HREF Links) -->
                 <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
-                    <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand-600 bg-brand-50">Home</a>
-                    <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">About Us</a>
-                    <a href="focus.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Focus Areas</a>
-                    <a href="projects.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Projects</a>
-                    <a href="gallery.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Gallery</a>
-                    <a href="team.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Our Team</a>
-                    <a href="news.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">News</a>
-                    <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Contact</a>
+                    <a style="font-size: 15px;" href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-brand-600 bg-brand-50">Home</a>
+                    <a style="font-size: 15px;" href="about.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">About Us</a>
+                    <a style="font-size: 15px;" href="focus.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Focus Areas</a>
+                    <a style="font-size: 15px;" href="projects.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Projects</a>
+                    <a style="font-size: 15px;" href="gallery.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Gallery</a>
+                    <a style="font-size: 15px;" href="team.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Our Team</a>
+                    <a style="font-size: 15px;" href="news.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">News</a>
+                    <a style="font-size: 15px;" href="contact.html" class="px-3 py-2 rounded-lg text-sm font-semibold transition hover:text-brand-600 hover:bg-brand-50 text-gray-700">Contact</a>
                 </nav>
 
                 <!-- Header Actions -->
@@ -137,7 +136,7 @@
                         Volunteer
                     </a>
                     <button onclick="openDonateModal()" class="px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
-                        <i class="fas fa-heart mr-1.5 text-red-300"></i> Donate
+                        <i class=" mr-1.5 text-red-300"></i> Donate
                     </button>
                 </div>
 
@@ -185,9 +184,7 @@
             <!-- HERO OVERLAY CONTENT -->
             <div class="relative z-20 max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-start text-white">
                 
-                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-500/90 text-white mb-4 uppercase tracking-wider backdrop-blur-sm border border-brand-300/30">
-                    <i class="fas fa-globe-africa mr-1.5"></i> Non-Governmental Organization • Ghana
-                </span>
+             
                 
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-3xl drop-shadow-md">
                     Empowering Communities, <span class="text-brand-400">Transforming Lives</span> in Ghana
@@ -209,13 +206,7 @@
                 </div>
             </div>
 
-            <!-- CAROUSEL CONTROLS: LEFT & RIGHT ARROWS -->
-            <button onclick="prevHeroSlide()" aria-label="Previous Slide" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/40 hover:bg-brand-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
-                <i class="fas fa-chevron-left text-lg"></i>
-            </button>
-            <button onclick="nextHeroSlide()" aria-label="Next Slide" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/40 hover:bg-brand-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
-                <i class="fas fa-chevron-right text-lg"></i>
-            </button>
+            
 
             <!-- CAROUSEL CONTROLS: PAGINATION DOT INDICATORS -->
             <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center space-x-3 bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
@@ -226,9 +217,7 @@
             </div>
 
             <!-- PAUSE INDICATOR STATUS -->
-            <div id="carousel-status" class="absolute top-4 right-4 z-30 bg-black/40 text-white/80 text-xs px-3 py-1 rounded-full backdrop-blur-sm hidden sm:block">
-                <i class="fas fa-circle-play text-brand-400 mr-1.5"></i>Auto Playing
-            </div>
+           
         </div>
 
         <!-- HOME SUMMARY ABOUT -->
@@ -270,7 +259,7 @@
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=800&auto=format&fit=crop" alt="Community gathering Ghana" class="rounded-2xl shadow-xl w-full object-cover h-[400px]">
                         <div class="absolute -bottom-6 -left-6 bg-brand-100 p-6 rounded-xl border-2 border-brand-200 hidden sm:block shadow-lg max-w-xs">
-                            <p class="text-brand-800 font-bold text-lg">10+ Years</p>
+                            <p class="text-brand-800 font-bold text-lg">5 Years</p>
                             <p class="text-brand-700 text-sm">Of dedicated service to vulnerable Ghanaian families.</p>
                         </div>
                     </div>
@@ -370,13 +359,11 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="space-y-4">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-brand-600 flex items-center justify-center text-white">
-                            <i class="fas fa-hands-holding-circle text-lg"></i>
-                        </div>
+                         <img src="images/newlogo.JPG" alt="Womovelam NGO Logo" class="w-12 h-12 object-contain rounded-xl group-hover:scale-105 transition-transform">
                         <span class="text-xl font-extrabold text-white">WOMOVELAM</span>
                     </div>
                     <p class="text-sm text-gray-400 leading-relaxed">
-                        Registered Non-Governmental Organization in Ghana empowering grassroots communities through sustainable health, clean water, and education.
+                        Registered Non-Governmental Organization in Ghana empowering grassroots communities through sustainable health, and education.
                     </p>
                 </div>
 
@@ -409,7 +396,8 @@
             </div>
 
             <div class="pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2026 Womovelam NGO Ghana. All rights reserved.</p>
+                <p>&copy; 2026 Womovelam NGO Ghana. All rights reserved.</p><br>
+                Developed by Kerches
                 <div class="flex space-x-6 mt-4 sm:mt-0">
                     <a href="#" class="hover:text-gray-400">Privacy Policy</a>
                     <a href="#" class="hover:text-gray-400">Terms of Service</a>
